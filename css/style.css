@@ -1,0 +1,60 @@
+#app {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  html{
+    background-color: #8ef093;
+  }
+
+  .columns{
+    display: flex;
+  }
+  
+  .column {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: #f9f9f9;
+    margin-top: 200px;
+  }
+  
+  .card {
+    border-radius: 5px;
+    background-color: #8ef093;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .new-card-form, .card-actions {
+    margin-top: 10px;
+  }
+  
+  .card-title {
+    font-weight: bold;
+  }
+  
+  .card-date {
+    font-size: 12px;
+  }
+  
+  .card-description {
+    margin-top: 8px;
+    color: #333;
+  }
+  
+  .card-deadline {
+    margin-top: 8px;
+  }
+  
+  input, textarea, button {
+    margin: 5px 0;
+  }
+  
+  form{
+    text-align: center;
+  
+  }

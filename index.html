@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="js/vue.js"></script>
+    <script defer src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Trello</title>
+</head>
+<body>
+    <div id="app">
+        <div class="columns">
+            <div class="column" v-for="(column, columnIndex) in columns" :key="columnIndex">
+                <h2>{{ column.name }}</h2>
+                <board
+                    v-for="(card, cardIndex) in column.cards"
+                    :key="cardIndex"
+                    :card="card"
+                    :column-index="columnIndex"
+                    :card-index="cardIndex"
+                    @delete-card="deleteCard"
+                    @move-to-in-progress="moveToInProgress"
+                    @move-to-testing="moveToTesting"
+                    @move-to-done="moveToDone"
+                ></board>
+                <form v-if="columnIndex === 0" @submit.prevent="addCard(columnIndex)">
+                    <h3>Новая задача</h3>
+                    <input v-model="newCard.title" placeholder="Заголовок" required />
+                    <input v-model="newCard.description" placeholder="Описание" required />
+                    <input type="date" v-model="newCard.deadline" placeholder="Deadline" required />
+                    <button type="submit">Создать</button>
+                </form>
+            </div>
+        </div>
+    </div>     
+</body>
+</html>
